@@ -14,7 +14,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::with('followers:users.id,name')->get();
 
         return view('users.index', compact('users'));
     }
