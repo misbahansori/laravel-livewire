@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use App\User;
 use Livewire\Component;
 
-class UserList extends Component
+class UserFollower extends Component
 {
     public $userId;
     public $name;
@@ -24,6 +24,6 @@ class UserList extends Component
 
     public function render()
     {
-        return view('livewire.user-list');
+        return view('livewire.user-follower');
     }
 }
