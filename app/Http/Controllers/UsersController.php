@@ -6,7 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
-{
+{   
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +14,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::with('followers:users.id,name')->get();
+        $users = User::with('followers:users.id,name')->paginate();
 
         return view('users.index', compact('users'));
     }

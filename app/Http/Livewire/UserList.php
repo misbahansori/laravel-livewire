@@ -2,32 +2,24 @@
 
 namespace App\Http\Livewire;
 
+use App\User;
 use Livewire\Component;
 
 class UserList extends Component
 {
-    /**
-     * $user
-     *
-     * @var \App\User
-     */
-    public $user;
+    public $userId;
+    public $name;
+    public $detail;
 
-    /**
-     * $isShown
-     *
-     * @var boolean
-     */
-    public $isShown = false;
-
-    public function mount($user)
+    public function mount($userId, $name)
     {
-        $this->user = $user;
+        $this->userId = $userId;
+        $this->name = $name;
     }
-
-    public function toggle()
+    
+    public function loadDetail()
     {
-        $this->isShown = ! $this->isShown;
+        $this->detail = User::find($this->userId);
     }
 
     public function render()
